@@ -1,0 +1,7 @@
+#has-many-achievements{
+    overflow-x: scroll;
+}
+
+#has-many-achievements .input-group{
+    width: 250px;
+}

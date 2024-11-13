@@ -1,0 +1,423 @@
+.header {
+  top: 0;
+  left: 0;
+  position: sticky;
+  z-index: 100;
+  transition: all 0.4s ease;
+
+  $header-mobile: 1050px;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  background-color: $black;
+  align-items: center;
+  transition: all 0.4s ease;
+
+  > .content {
+    color: white;
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    > a {
+      display: flex;
+      align-items: center;
+
+      .icon {
+        width: 220px;
+        height: 17px;
+      }
+    }
+
+    .link-list {
+      margin-left: 60px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      height: 19px;
+      //
+      font-family: $font-family;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+
+      @media screen and (max-width: $header-mobile) {
+        display: none;
+      }
+
+      li {
+        display: flex;
+        align-items: center;
+
+        a {
+          color: #fff;
+          
+          &:hover {
+            color: $red;
+          }
+        }
+      }
+    }
+
+    .controls {
+      margin-left: auto;
+      display: flex;
+      gap: 30px;
+      align-items: center;
+
+      .shopping-basket {
+        position: relative;
+        color: white;
+        @include cursor-pointer;
+
+        .icon {
+          width: 20px;
+          height: 19px;
+          transition: all 0.4s ease;
+
+          &:hover {
+            color: $red;
+          }
+        }
+
+        .counter {
+          border-radius: 27px;
+          border: 2px solid #000;
+          background: $red;
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 1px 5px 1px 6px;
+          position: absolute;
+          top: 0;
+          right: 0;
+          transform: translate(50%, -50%);
+
+          font-family: $font-family;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+        }
+      }
+
+      > .user {
+        width: 20px;
+        height: 20px;
+        @include cursor-pointer;
+        transition: all 0.4s ease;
+        display: none;
+
+        @media screen and (max-width: $header-mobile) {
+          display: block;
+        }
+
+        &:hover {
+          .icon {
+            color: $red;
+          }
+        }
+
+        .icon {
+          width: 20px;
+          height: 20px;
+          color: white;
+        }
+      }
+
+      > .cabinet {
+        @include header-btn;
+        color: white;
+        width: 87px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @media screen and (max-width: $header-mobile) {
+          display: none;
+        }
+      }
+
+      .language-selector {
+        display: flex;
+        gap: 6px;
+        height: 19px;
+        @include cursor-pointer;
+
+        @media screen and (max-width: $header-mobile) {
+          display: none;
+        }
+
+        &:hover {
+          transition: all 0.4s ease;
+          color: $red;
+
+          .icon {
+            color: $red;
+          }
+        }
+
+        > p {
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          font-family: $font-family;
+          margin-top: 0;
+        }
+
+        .icon {
+          margin-top: 9px;
+          width: 8px;
+          height: 6px;
+          color: white;
+          transition: all 0.4s ease;
+        }
+      }
+
+      > .menu {
+        width: 24px;
+        height: 12px;
+        position: relative;
+        background-color: inherit;
+        padding: 0;
+        @include cursor-pointer;
+
+        @media screen and (min-width: 1051px) {
+          display: none;
+        }
+
+        &.active {
+          .line {
+            top: 4px;
+            width: 22px;
+            left: 50%;
+          }
+
+          .line2 {
+            transform: translate(-50%) rotate(45deg);
+            transform-origin: center;
+          }
+
+          .line1 {
+            transform-origin: center;
+            transform: translate(-50%) rotate(-45deg);
+          }
+        }
+
+        &:hover {
+          .line {
+            // transition: all 0.4s ease;
+            background-color: $red;
+          }
+        }
+
+        .line {
+          height: 2px;
+          background-color: #fff;
+          border-radius: 2px;
+          right: 0;
+          left: 0;
+          position: absolute;
+          // transition: background-color 0.4s ease, all 0.6s ease;
+          transition-delay: 00ms, 00ms, 200ms, 200ms, 200ms, 200ms;
+          transition-property: width, top, left, bottom, right, transform;
+          // transition-timing-function: ease;
+          transition-duration: 0.2s, 0.3s;
+        }
+
+        .line1 {
+          width: 24px;
+          top: 0;
+        }
+
+        .line2 {
+          width: 18px;
+          bottom: 0;
+        }
+      }
+    }
+  }
+
+  &.sticky {
+    will-change: transform;
+  }
+
+  &.sticky--top {
+    top: 0;
+  }
+
+  &.is-active {
+    height: 60px;
+  }
+
+  > .mobile-menu {
+    width: 100%;
+    position: absolute;
+    height: calc(100svh - 80px);
+    overflow: auto;
+    transition: all 0.5s ease;
+    display: none;
+    opacity: 0;
+    z-index: 10;
+    top: calc(100% - 1px);
+
+    &.active {
+      display: block;
+    }
+
+    &.animate {
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      opacity: 1;
+    }
+
+    > .content {
+      width: 100%;
+      min-height: calc(100svh - 80px);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 40px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      font-family: $font-family;
+      font-size: 20px;
+      color: #fff;
+      position: relative;
+
+      a {
+        transition: color 0.4s ease;
+        @include cursor-pointer;
+        color: white;
+        width: fit-content;
+
+        &:hover {
+          color: $red;
+        }
+
+        &.active {
+          color: $red;
+        }
+      }
+
+      > .links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 36px;
+        text-align: center;
+        margin-bottom: 104px;
+        font-size: 20px;
+      }
+
+      > .language {
+        display: flex;
+        gap: 30px;
+        width: fit-content;
+        position: absolute;
+        bottom: 40px;
+        align-self: center;
+      }
+    }
+  }
+}
+
+.select-menu {
+  max-width: 100px;
+  position: relative;
+
+  @media (max-width: 1050px) {
+    display: none;
+  }
+
+  .select-btn {
+    display: flex;
+    font-size: 16px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: $red;
+    }
+  }
+
+  .options {
+    position: absolute;
+    width: 58px;
+    overflow-y: auto;
+    padding: 10px;
+    border-radius: 20px;
+    background: $red;
+    animation-duration: 0.35s;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 0.35s;
+    -webkit-animation-fill-mode: both;
+    opacity: 0;
+    right: 0;
+    max-height: 0;
+
+    .option {
+      color: #fff;
+      display: flex;
+      height: 30px;
+      cursor: pointer;
+      padding: 0 6px;
+      border-radius: 10px;
+      align-items: center;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: $black;
+      }
+
+      .option-text {
+        font-size: 16px;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.select-btn .icon {
+  margin-top: 6px;
+  margin-left: 6px;
+  width: 8px;
+  height: 6px;
+  color: white;
+  transition: 0.4s;
+}
+
+.select-menu.active .select-btn .icon {
+  transform: rotate(-180deg);
+}
+.select-menu.active .options {
+  display: block;
+  opacity: 0;
+  z-index: 10;
+  animation-name: fadeInUp;
+  -webkit-animation-name: fadeInUp;
+  animation-duration: 0.4s;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 0.4s;
+  -webkit-animation-fill-mode: both;
+  max-height: 200px;
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translate3d(0, 30px, 0);
+    opacity: 0;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}

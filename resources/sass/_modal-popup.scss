@@ -1,0 +1,165 @@
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1050;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal.show {
+  display: flex;
+  opacity: 1;
+}
+
+.choice-course-modal{
+  .content.wrapper{
+    flex-wrap: wrap;
+  }
+
+  .tarif2{
+    height: 344px;  
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+.modal-content {
+  margin: 100px auto;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(-50px);
+  position: relative;
+
+  .wrapper{
+    display: flex;
+    justify-content: center;
+  }
+
+  .close-icon {
+    position: absolute;
+    top: -70px;
+    right: -90px;
+    cursor: pointer;
+
+    @media (max-width: 1300px) {
+      right: 20px;
+    }
+
+    svg {
+      stroke: #fff;
+      transition: stroke 0.3s ease;
+    }
+
+    &:hover {
+      svg {
+        stroke: $red;
+      }
+    }
+  }
+}
+
+.modal.show .modal-content {
+  opacity: 1;
+  transform: none;
+  max-width: 100%;
+}
+
+body::before {
+  content: "";
+  display: block;
+  height: 100%;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(30px);
+  background: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -999;
+}
+
+body.modal-open::before {
+  opacity: 1;
+  z-index: 1001;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.video-popup-modal {
+  .modal-content {
+    width: 100%;
+    .close-icon {
+      top: -40px;
+      right: 40px;
+    }
+  }
+}
+
+
+.modal.product-added-notice-modal {
+  .modal-content {
+    width: 600px;
+    max-width: calc(100% - 20px);
+    margin: auto;
+    position: relative;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 60px;
+
+    @media (max-width: 768px) {
+      padding: 30px 20px;
+    }
+
+    .close-icon {
+      top: 20px;
+      right: 20px;
+
+      &:hover {
+        svg {
+          stroke: #e21414;
+        }
+      }
+
+      svg {
+        stroke: #000000;
+      }
+    }
+    .title {
+      margin-bottom: 40px;
+      font-family: "Stolzl";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 32px;
+      line-height: 100%;
+      color: #000000;
+      text-align: center;
+    }
+
+    .btn-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      @media (max-width: 500px) {
+        flex-direction: column;
+      }
+
+      & > * {
+        width: 50%;
+        padding: 8px 10px 10px;
+
+        @media (max-width: 500px) {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

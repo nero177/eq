@@ -1,0 +1,254 @@
+.start {
+  width: 100%;
+  background-color: $black;
+  min-height: 689px;
+  padding: 120px 0;
+  position: relative;
+
+  @media screen and (max-width: 768px) {
+    padding: 60px 0;
+  }
+
+  > .content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+
+    @media screen and (max-width: 1090px) {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .text-section {
+      margin-right: 20px;
+
+      > h2 {
+        color: white;
+        font-family: $second-family;
+        font-size: 64px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 110%;
+        max-width: 577px;
+
+        @media screen and (max-width: 1135px) {
+          max-width: none;
+        }
+
+        @media screen and (max-width: 768px) {
+          font-size: 48px;
+        }
+
+        span {
+          color: transparent;
+          -webkit-text-stroke: 1px white;
+          text-stroke: 1px white;
+        }
+      }
+
+      .stroke {
+        margin-top: 10px;
+      }
+
+      > p {
+        margin-top: 40px;
+        color: white;
+        font-family: $font-family;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%;
+        max-width: 400px;
+
+        @media screen and (max-width: 1135px) {
+          max-width: none;
+        }
+      }
+
+      @media screen and (max-width: 650px) {
+        margin-bottom: 474px;
+      }
+    }
+
+    .tarifs {
+      height: 434px;
+      display: flex;
+      gap: 10px;
+      width: 100%;
+
+      @media screen and (max-width: 1090px) {
+        // display: grid;
+        // grid-template-columns: 290px 290px;
+        // justify-content: center;
+        gap: 10px;
+      }
+
+      @media screen and (max-width: 650px) {
+        justify-content: left;
+        overflow: auto;
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        width: calc(100vw);
+        bottom: 60px;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+          width: 0;
+          height: 0;
+        }
+      }
+
+      .tarif {
+        width: 50%;
+
+        @media screen and (max-width: 1090px) {
+          width: 290px;
+        }
+
+        flex-shrink: 0;
+      }
+
+      .tarif2 {
+        ul {
+          @include ul-red;
+        }
+      }
+    }
+  }
+}
+
+.tarif1 {
+  background-color: $red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h3 {
+    color: white;
+
+    width: 195px;
+    margin-top: 86px;
+    font-family: $second-family;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+  }
+
+  button {
+    @include tarif-btn-white;
+    width: calc(100% - 60px);
+    margin: 92px 30px 0 30px;
+  }
+
+  @media screen and (max-width: 650px) {
+    margin-left: 20px;
+  }
+}
+
+.tarif2 {
+  border: 1px solid $red;
+  padding: 24px 30px 30px 30px;
+
+  @media screen and (max-width: 650px) {
+    margin-right: 20px;
+  }
+
+  font-family: $second-family;
+
+  .desc{
+    color: #fff;
+    margin-top: 15px;
+    font-weight: 400;
+    font-family: "TTNorms", sans-serif;
+    font-size: 16px;
+  }
+
+  .price {
+    display: inline-flex;
+    width: 100%;
+    gap: 4px;
+    align-items: center;
+    white-space: nowrap;
+
+    span {
+      display: inline-flex;
+    }
+
+    .old-price {
+      font-weight: 500;
+      font-size: 18px;
+      font-family: $second-family;
+      line-height: 1;
+      color: #fff;
+      position: relative;
+      margin-left: 10px;
+
+      p {
+        margin-top: 0;
+        font-weight: 700;
+        font-size: 12px;
+        color: #fff;
+      }
+
+      &:after {
+        content: "";
+        display: block;
+        width: 90%;
+        height: 1px;
+        background-color: white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-30deg);
+      }
+    }
+
+    h3 {
+      color: $red;
+      font-size: 50px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      transition: all 0.4s ease;
+    }
+
+    p {
+      color: $red;
+      font-size: 24px;
+      margin-top: 4px;
+      // font-weight: 300;
+      transition: all 0.4s ease;
+    }
+  }
+
+  h4 {
+    margin-top: 16px;
+    color: #fff;
+    transition: all 0.4s ease;
+  }
+
+  ul {
+    margin-top: 50px;
+    @include ul-white;
+  }
+
+  button {
+    margin-top: 50px;
+    @include tarif-btn-red;
+    width: 100%;
+  }
+
+  a{
+    margin-top: 50px;
+    width: 100%;
+    @include tarif-btn-red;
+
+    &:hover{
+      background: #fff;
+    }
+  }
+}

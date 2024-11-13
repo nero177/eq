@@ -1,0 +1,159 @@
+@mixin cursor-pointer {
+  &:hover {
+    cursor: url("../../assets/icons/cursor-pointer.png"), pointer;
+  }
+}
+
+@mixin btn {
+  border-radius: 60px;
+  padding: 9px 16px 10px 16px;
+  @include cursor-pointer;
+}
+
+@mixin header-btn {
+  @include btn;
+  border: 1px solid #fff;
+  background-color: inherit;
+  color: white;
+  //
+  font-family: $font-family;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  //
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  //
+  transition: all 0.4s ease;
+  &:hover {
+    border-color: $red;
+    color: $red;
+  }
+}
+@mixin tarif-btn {
+  height: 54px;
+  width: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  //font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 139%;
+  font-family: $second-family;
+  border-radius: 60px;
+  text-transform: lowercase;
+}
+@mixin tarif-btn-white {
+  @include tarif-btn;
+  border: 1px solid white;
+  background-color: #fff;
+  color: $red;
+  transition: all 0.4s ease;
+  @include cursor-pointer;
+  &:hover {
+    background-color: transparent;
+    color: white;
+  }
+}
+@mixin tarif-btn-red {
+  @include tarif-btn;
+  border: 1px solid $red;
+  background-color: $red;
+  color: white;
+  transition: all 0.4s ease;
+  @include cursor-pointer;
+  &:hover {
+    background-color: transparent;
+    color: $red;
+  }
+}
+@mixin tw-btn($width: 159px) {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  border-radius: 53px;
+  height: 54px;
+  width: $width;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: $second-family;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 139%;
+  transition: all 0.4s ease;
+  @include cursor-pointer;
+  &:hover {
+    background-color: #fff;
+    color: black;
+  }
+}
+@mixin free-view-btn {
+  text-transform: lowercase;
+  @include tarif-btn-red;
+  background: transparent;
+  border-color: $black;
+  color: $black;
+  width: 197px;
+  height: 54px;
+  &:hover {
+    background-color: $black;
+    border-color: $black;
+    color: white;
+  }
+}
+
+@mixin stroke-text($color: $black) {
+  color: transparent;
+  -webkit-text-stroke: 1px $color;
+  text-stroke: 1px $color;
+}
+
+@mixin ul-white($link: "../../assets/icons/list-white-icon.svg", $mb: 20px) {
+  list-style: none;
+  padding-left: 0;
+
+  li {
+    position: relative;
+    padding-left: 22px;
+    color: white;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    font-family: $font-family;
+    &:not(:last-child) {
+      margin-bottom: $mb;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 4px;
+      width: 12px;
+      height: 12px;
+      background-image: url($link); // шлях до вашого SVG
+      background-size: contain;
+      background-repeat: no-repeat;
+      color: #fff;
+    }
+  }
+}
+@mixin ul-red($mb: 20px) {
+  @include ul-white("/assets/icons/list-red-icon.svg", $mb);
+}
+
+@mixin off-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+}

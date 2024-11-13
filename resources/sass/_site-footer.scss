@@ -1,0 +1,257 @@
+footer {
+  width: 100%;
+  background-color: $black;
+  min-height: 285px;
+  margin-top: auto;
+
+  .content {
+    height: 219px;
+    display: flex;
+    align-items: center;
+
+    @media screen and (max-width: 920px) {
+      align-items: start;
+      padding-top: 102px;
+    }
+
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+      padding-top: 41.63px;
+      gap: 40px;
+    }
+
+    .icon {
+      width: 220px;
+      flex-shrink: 0;
+      height: 17px;
+    }
+
+    .container {
+      display: flex;
+      width: 100%;
+      align-items: center;
+
+      @media screen and (max-width: 920px) {
+        flex-direction: column;
+        align-items: end;
+        gap: 40px;
+      }
+
+      @media screen and (max-width: 768px) {
+        align-items: start;
+      }
+
+      .links {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        margin-left: 50.19px;
+
+        @media screen and (max-width: 920px) {
+          margin-left: 0;
+        }
+
+        a {
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          color: #fff;
+          font-family: $font-family;
+
+          &:hover {
+            color: $red;
+          }
+        }
+      }
+
+      .social {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+
+        @media screen and (max-width: 920px) {
+          margin-left: 0;
+        }
+
+        @media screen and (max-width: 768px) {
+          width: 100%;
+        }
+
+        a {
+          color: #fff;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          color: #fff;
+          font-family: $font-family;
+
+          &:hover {
+            color: $red;
+          }
+        }
+
+        .social-icons {
+          display: flex;
+          align-items: center;
+          gap: 30px;
+          margin-left: 50px;
+
+          @media screen and (max-width: 768px) {
+            margin-left: auto;
+          }
+
+          a {
+            height: fit-content;
+            display: flex;
+            align-items: center;
+
+            &:hover {
+              color: $red;
+            }
+          }
+
+          .icon {
+            &.inst {
+              width: 18px;
+              height: 18px;
+            }
+
+            &.fb {
+              width: 9px;
+              height: 18px;
+            }
+
+            &.yt {
+              width: 20px;
+              height: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .privacy-policy {
+    min-height: 66px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    padding: 0;
+
+    .desktop {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      @media screen and (max-width: 768px) {
+        display: none;
+      }
+
+      .info {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+
+        a {
+          font-family: $font-family;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          color: white;
+
+          &:first-child {
+            opacity: 0.4;
+          }
+
+          &:hover {
+            color: $red;
+          }
+        }
+      }
+
+      .cards {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+
+        a {
+          display: flex;
+          align-items: center;
+
+          .visa {
+            width: 53px;
+            height: 16px;
+          }
+
+          .mastercard {
+            width: 39px;
+            height: 24px;
+          }
+        }
+      }
+    }
+
+    .mobile {
+      width: 100%;
+      height: 139px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 27px;
+      padding: 0 20px;
+
+      @media screen and (min-width: 769px) {
+        display: none;
+      }
+
+      .top-links {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+
+        a {
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          color: white;
+          font-family: $font-family;
+
+          &:hover {
+            color: $red;
+          }
+        }
+      }
+
+      .bottom-links {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        a {
+          &:first-child {
+            opacity: 0.4;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            color: white;
+            font-family: $font-family;
+          }
+
+          &:hover {
+            color: $red;
+          }
+
+          .icon {
+            width: 89px;
+            height: 20px;
+          }
+        }
+      }
+    }
+  }
+}

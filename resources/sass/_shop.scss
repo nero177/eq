@@ -1,0 +1,705 @@
+.qty-input {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.qty-input .product-qty,
+.qty-input .qty-count {
+  background: transparent;
+  font-size: inherit;
+  border: none;
+  display: inline-block;
+  min-width: 0;
+  height: 2.5rem;
+  line-height: 1;
+}
+
+.qty-input .product-qty:focus,
+.qty-input .qty-count:focus {
+  outline: none;
+}
+
+.qty-input .product-qty {
+  width: 25px;
+  min-width: 0;
+  display: inline-block;
+  text-align: center;
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.qty-input .product-qty::-webkit-outer-spin-button,
+.qty-input .product-qty::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.qty-input .qty-count {
+  width: 2.5rem;
+
+  .icon {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+.qty-input .qty-count:disabled {
+  color: #ccc;
+  background: #f2f2f2;
+  cursor: not-allowed;
+  border-color: transparent;
+}
+
+.shopping-cart {
+  padding: 160px 0;
+
+  @media (max-width: 768px) {
+    padding: 40px 0 80px;
+  }
+
+  .wrap {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 60px;
+
+    @media (max-width: 768px) {
+      margin-bottom: 30px;
+    }
+  }
+
+  .shopping-cart-title {
+    font-weight: 400;
+    font-size: 64px;
+    font-family: $second-family;
+
+    @media (max-width: 768px) {
+      font-size: 48px;
+    }
+  }
+
+  .clear-cart {
+    background: none;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: right;
+    color: $black;
+    display: flex;
+    align-items: center;
+    top: -10px;
+    position: relative;
+
+    .icon {
+      width: 14px;
+      height: 14px;
+      margin-right: 8px;
+    }
+
+    &:hover {
+      color: $red;
+    }
+  }
+
+  .total {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .title {
+      opacity: 0.5;
+      margin-right: 10px;
+
+      @media (max-width: 768px) {
+        margin-right: 0;
+      }
+    }
+
+    .value {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 1.5;
+      margin-right: 30px;
+
+      @media (max-width: 768px) {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  border: none;
+  text-align: left;
+}
+
+.shopping-cart-table {
+  width: 100%;
+  margin-bottom: 20px;
+
+  &.cart-table-last-orders {
+    &>tbody>tr>td {
+      @media (max-width: 768px) {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-right: 0;
+      }
+
+      &.sum {
+        @media (max-width: 768px) {
+          display: none;
+        }
+      }
+
+      &.actions {
+        @media (max-width: 768px) {
+          padding-top: 0;
+
+          .btn {
+            width: 100%;
+          }
+        }
+      }
+
+      &.date {
+        @media (max-width: 768px) {
+          padding-top: 0;
+        }
+      }
+
+      &.quantity {
+        @media (max-width: 768px) {
+          padding-right: 0;
+        }
+      }
+    }
+  }
+
+  .mobile-only {
+    display: none;
+    line-height: 1.5;
+    color: rgba(0, 0, 0, 0.5);
+
+    @media (max-width: 768px) {
+      display: block;
+    }
+  }
+
+  &.open-order {
+    &>tbody>tr {
+      border-top: none;
+
+      @media (max-width: 768px) {
+        display: table-row;
+      }
+
+      &:first-child {
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    &>tbody>tr>td {
+      padding: 10px 0;
+
+      @media (max-width: 768px) {
+        display: table-cell;
+        width: 33%;
+      }
+
+      &.quantity {
+        text-align: center;
+      }
+
+      &.sum {
+        text-align: right;
+      }
+
+      &.name {
+        @media (max-width: 768px) {
+          width: 33%;
+          padding-bottom: 10px;
+        }
+      }
+    }
+
+    &>thead>tr>th {
+      padding: 20px 0;
+      width: 33%;
+
+      @media (max-width: 768px) {
+        display: table-cell;
+      }
+
+      &.quantity {
+        text-align: center;
+      }
+
+      &.sum {
+        text-align: right;
+      }
+    }
+
+    &>tfoot>tr {}
+
+    &>tfoot>tr>th {
+      padding-top: 40px;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.5;
+      color: rgba(0, 0, 0, 0.5);
+
+      @media (max-width: 768px) {
+        width: 50%;
+      }
+
+      &:nth-child(2) {
+        @media (max-width: 768px) {
+          width: 1px;
+        }
+      }
+
+      &:last-child {
+        text-align: right;
+      }
+
+      b,
+      .value {
+        color: $black;
+      }
+
+      .value {
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 1.5;
+        text-align: right;
+        color: #000;
+
+        @media (max-width: 768px) {
+          display: block;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+
+  .btn--transparent.btn--dark {
+    &:hover {
+      background-color: $black;
+      border-color: $black;
+      color: white;
+    }
+  }
+
+  .remove {
+    color: $black;
+    background: none;
+
+    &:hover {
+      color: $red;
+    }
+
+    .icon {
+      width: 12px;
+      height: 12px;
+    }
+  }
+
+  &>tbody>tr {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+
+    @media (max-width: 768px) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    &:last-child {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &>thead>tr>th {
+    padding: 20px 20px 20px 0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: rgba(0, 0, 0, 0.5);
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  &>tbody>tr>td {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #000;
+    padding: 20px 20px 20px 0;
+
+    @media (max-width: 768px) {
+      display: flex;
+      align-items: center;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
+
+    &.name {
+      @media (max-width: 768px) {
+        width: 100%;
+        padding-bottom: 0;
+      }
+    }
+
+    &.delete {
+      @media (max-width: 768px) {
+        margin-left: auto;
+        margin-top: -25px;
+      }
+    }
+
+    &.cost,
+    &.quantity,
+    &.sum,
+    &.delete {
+      padding-top: 0;
+      padding-right: 10px;
+    }
+  }
+}
+
+.privacy-policy {
+  padding: 120px 0;
+
+  @media (max-width: 768px) {
+    padding: 60px 0;
+  }
+
+  h1 {
+    font-weight: 400;
+    font-size: 64px;
+    font-family: $second-family;
+    margin-bottom: 60px;
+
+    @media (max-width: 768px) {
+      font-size: 38px;
+      margin-bottom: 30px;
+    }
+  }
+
+  p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+}
+
+.order-placement {
+  padding: 160px 0;
+
+  @media (max-width: 768px) {
+    padding: 40px 0 80px;
+  }
+
+  .order-placement-title {
+    font-weight: 400;
+    font-size: 64px;
+    font-family: $second-family;
+    margin-bottom: 20px;
+
+    @media (max-width: 768px) {
+      font-size: 48px;
+    }
+  }
+
+  .link-back {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.2;
+    font-family: $second-family;
+    margin-bottom: 60px;
+    color: $black;
+    display: flex;
+    align-items: center;
+
+    @media (max-width: 768px) {
+      margin-bottom: 30px;
+    }
+
+    &:hover {
+      color: $red;
+    }
+
+    .icon {
+      width: 12px;
+      height: 11px;
+      margin-right: 8px;
+    }
+  }
+
+  .order {
+    width: 400px;
+    max-width: calc(100% - 40px);
+    margin: 0 auto 60px;
+
+    .order-title {
+      font-weight: 400;
+      font-size: 32px;
+      font-family: $second-family;
+      margin-bottom: 20px;
+    }
+
+    .order-list-item {
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 8px 0;
+
+      .item {
+        padding: 8px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .name {
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 1.5;
+          
+          color: rgba(0, 0, 0, 0.5);
+        }
+
+        .value {
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 1.5;
+          text-align: right;
+          line-break: anywhere;
+          max-width: 70%;
+        }
+      }
+    }
+
+    .total {
+      display: flex;
+      justify-content: flex-end;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      padding-top: 16px;
+
+      .sub-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        span {
+          font-weight: 700;
+          font-size: 20px;
+          line-height: 1.5;
+          color: #000;
+        }
+      }
+    }
+  }
+
+  .placement-data {
+    width: 400px;
+    max-width: calc(100% - 40px);
+    margin: 0 auto 60px;
+
+    .title {
+      font-weight: 400;
+      font-size: 32px;
+      font-family: $second-family;
+      margin-bottom: 20px;
+    }
+  }
+
+  .payment-method {
+    width: 400px;
+    max-width: calc(100% - 40px);
+    margin: 0 auto;
+
+    .title {
+      font-weight: 400;
+      font-size: 32px;
+      font-family: $second-family;
+      margin-bottom: 20px;
+    }
+
+    .cards {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+
+    .info {
+      padding: 16px 20px;
+      background-color: #f7f7f7;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.5;
+      color: rgba(0, 0, 0, 0.5);
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.3;
+      margin-bottom: 40px;
+
+      a {
+        color: $black;
+        text-decoration: underline;
+        text-decoration-skip-ink: none;
+
+        &:hover {
+          color: $red;
+        }
+      }
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.fl-form.fl-style-1 input.fl-input {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 45px;
+  width: 400px;
+  max-width: 100%;
+  height: 54px;
+  padding: 14px 26px;
+  color: $black;
+
+  &::-webkit-input-placeholder {
+    opacity: 0.5;
+    color: $black;
+  }
+
+  &::-moz-placeholder {
+    opacity: 0.5;
+    color: $black;
+  }
+
+  /* Firefox 19+ */
+  &:-moz-placeholder {
+    opacity: 0.5;
+    color: $black;
+  }
+
+  /* Firefox 18- */
+  &:-ms-input-placeholder {
+    opacity: 0.5;
+    color: $black;
+  }
+}
+
+.fl-form.fl-style-1 .fl-is-active input.fl-input {
+  padding: 14px 26px;
+}
+
+.fl-form.fl-style-1 .fl-is-active label.fl-label {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.5);
+  top: -12px;
+  left: 26px;
+  background-color: #fff;
+}
+
+.fl-form.fl-style-1 label.fl-label {
+  left: 26px;
+}
+
+.fl-form .fl-is-required:before {
+  opacity: 0;
+}
+
+// STYLES for checkboxes
+.checkbox {
+  input[type="checkbox"]+label {
+    cursor: pointer;
+    padding: 0.2em;
+    line-height: 1;
+    display: flex;
+    align-items: flex-start;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.3;
+    color: #000;
+
+    a {
+      color: $red;
+    }
+  }
+
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  input[type="checkbox"]+label:before {
+    content: "\2714";
+    border: 1.6px solid rgba(0, 44, 119, 0.2);
+    border-radius: 5px;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    min-height: 18px;
+    padding-left: 0.2em;
+    padding-bottom: 0.3em;
+    margin-right: 10px;
+    vertical-align: bottom;
+    color: transparent;
+    transition: 0.3s;
+    font-size: 14px;
+  }
+
+  input[type="checkbox"]+label:active:before {
+    transform: scale(0);
+  }
+
+  input[type="checkbox"]:checked+label:before {
+    background-color: $red;
+    border-color: $red;
+    color: #fff;
+  }
+
+  input[type="checkbox"]:checked+label~.supplier {
+    display: block;
+  }
+
+  input[type="checkbox"]:disabled+label:before {
+    transform: scale(1);
+    border-color: #aaa;
+  }
+
+  input[type="checkbox"]:checked:disabled+label:before {
+    transform: scale(1);
+    background-color: #bfb;
+    border-color: #bfb;
+  }
+}

@@ -1,0 +1,101 @@
+/*-------------------------------------*/
+.accordeon {
+  margin: 0 20px;
+}
+.faqs-title {
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 1;
+  margin-bottom: 40px;
+  font-family: $second-family;
+  max-width: 40%;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+}
+.accordion__item {
+  position: relative;
+  overflow: hidden;
+  padding: 27px 0;
+  border-bottom: 1px solid $black;
+
+  &:first-child {
+    border-top: 1px solid $black;
+  }
+
+  .text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-top: 20px;
+  }
+}
+.accordion__item .accordion__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+
+  &.accordion-active {
+    color: $red;
+
+    .icons {
+      .icon {
+        &.minus {
+          opacity: 1;
+        }
+
+        &.plus {
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  .icons {
+    position: relative;
+
+    .icon {
+      width: 16px;
+      height: 16px;
+      transition: all 0.4s ease;
+
+      &.minus {
+        position: absolute;
+        top: 7px;
+        left: 0;
+        opacity: 0;
+      }
+    }
+  }
+
+  .accordion__title-text {
+    transition: all 0.3s ease;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1;
+    font-family: $second-family;
+
+    @media (max-width: 768px) {
+      font-size: 20px;
+    }
+  }
+}
+.accordion__item .accordion__title:hover {
+  transition: all 0.5s ease-out;
+}
+
+.accordion__item .accordion__content {
+  display: none;
+}
+
+.faqs > section {
+  padding: 80px 0 120px;
+
+  @media (max-width: 768px) {
+    padding: 40px 0 80px;
+  }
+}

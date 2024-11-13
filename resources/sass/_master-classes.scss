@@ -1,0 +1,230 @@
+.master-classes {
+  >.banner-carousel {
+    .slide {
+      &.slide-1 {
+        .content {
+          position: relative;
+          height: 720px;
+
+          @media screen and (max-width: 768px) {
+            height: 700px;
+          }
+
+          .banner-img {
+            height: 720px;
+            // width: 50%;
+            width: 100%;
+            max-width: 674px;
+            object-fit: cover;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 0;
+            object-position: left;
+
+            // If you need to align the image to the right edge, just remove the lower media query
+            @media screen and (max-width: 768px) {
+              max-width: 412px;
+            }
+          }
+
+          .info {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+
+            h2 {
+              max-width: 543px;
+              font-family: $second-family;
+              font-size: 64px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 100%;
+              text-wrap: wrap;
+
+              @media screen and (max-width: 768px) {
+                font-size: 48px;
+              }
+            }
+
+            >p {
+              font-family: $font-family;
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 130%;
+              color: $black;
+              margin-top: 30px;
+              max-width: 348px;
+
+              @media screen and (max-width: 768px) {
+                max-width: 328px;
+              }
+            }
+
+            .offer {
+              margin-top: 30px;
+              display: flex;
+              align-items: center;
+              gap: 20px;
+
+              .price {
+                display: inline-flex;
+                gap: 4px;
+                align-items: center;
+                white-space: nowrap;
+
+                span {
+                  display: inline-flex;
+                }
+
+                .old-price {
+                  font-weight: 500;
+                  font-size: 18px;
+                  font-family: $second-family;
+                  line-height: 1;
+                  color: #fff;
+                  position: relative;
+                  margin-left: 10px;
+
+                  p {
+                    margin-top: 0;
+                    font-weight: 700;
+                    font-size: 12px;
+                    color: #fff;
+                  }
+
+                  &:after {
+                    content: "";
+                    display: block;
+                    width: 90%;
+                    height: 1px;
+                    background-color: white;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%) rotate(-30deg);
+                  }
+                }
+
+                h3 {
+                  color: $red;
+                  font-size: 50px;
+                  font-style: normal;
+                  font-weight: 700;
+                  line-height: normal;
+                  transition: all 0.4s ease;
+                }
+
+                p {
+                  color: $red;
+                  font-size: 24px;
+                  margin-top: 4px;
+                  // font-weight: 300;
+                  transition: all 0.4s ease;
+                }
+              }
+
+              button {
+                @include tarif-btn-red;
+                width: auto;
+                padding: 0 20px;
+                height: 54px;
+                font-style: 16px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.recordings {
+  width: 100%;
+  min-height: 400px;
+  background-color: $red;
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .container {
+    // padding-top: 114px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-bottom: 20px;
+
+    @media screen and (max-width: 768px) {
+      grid-template-columns: 1fr;
+      padding-top: 40px;
+    }
+
+    .title {
+      display: flex;
+      font-family: $font-family;
+      padding-right: 20px;
+      min-width: calc(493px);
+
+      @media screen and (max-width: 768px) {
+        min-width: 10px;
+        padding-right: 0;
+      }
+
+      h2 {
+        color: #fff;
+        font-size: 216px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 100%;
+
+        @media screen and (max-width: 768px) {
+          font-size: 160px;
+        }
+      }
+
+      h3 {
+        margin-top: 24px;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 100%;
+        color: white;
+
+        @media screen and (max-width: 768px) {
+          font-size: 24px;
+          margin-top: 18px;
+        }
+      }
+
+      p {
+        margin-top: 8px;
+        color: white;
+        font-family: $font-family;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 150%;
+
+        @media screen and (max-width: 768px) {
+          margin-top: 4px;
+        }
+      }
+    }
+
+    .text-block {
+      margin-top: 28px;
+      max-width: 400px;
+      color: white;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%;
+      font-family: $font-family;
+
+      @media screen and (max-width: 768px) {
+        margin-top: 20px;
+        max-width: none;
+      }
+    }
+  }
+}
