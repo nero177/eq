@@ -23,3 +23,5 @@ public/build
 public/uploads
 public/media
 public/vendor
+app/Console/Commands/NotifyOldUsers.php
+app/Console/Commands/TransferUsers.php
